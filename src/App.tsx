@@ -30,8 +30,10 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Devashish Kaluvakolanu
+          Matt
+          Ryan Cortes
+          Bruce Bermel
         </p>
-
       </header>
       <Form>
         <Form.Label>API Key:</Form.Label>
