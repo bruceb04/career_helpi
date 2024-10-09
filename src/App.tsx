@@ -30,6 +30,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Matt
+          Ryan Cortes
+          Bruce Bermel
         </p>
       </header>
       <Form>
