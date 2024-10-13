@@ -4,8 +4,6 @@ const Home = () => {
     return (
         <>
             <h1>Home Page</h1>
-            <Link to="/basicquestions">Basic Questions</Link>
-            <Link to="/detailedquestions">Detailed Questions</Link>
         </>
     );
 };
