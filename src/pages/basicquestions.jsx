@@ -20,12 +20,12 @@ const BasicQuestions = () => {
         setResponses(newResponses);
 
         const answeredCount = newResponses.filter(r => r !== null).length;
-        setCompletion(((answeredCount / questions.length) * 100).toFixed(2));
+        setCompletion(Number(((answeredCount / questions.length) * 100).toFixed(2)));
     };
 
     return (
         <div>
-            <h1 id="header">Basic Questions Page</h1>
+            <h1 id="header">Career Quiz</h1>
             <p>You can change your answers at any time.</p>
             {questions.map((question, index) => (
                 <div key={index}>
@@ -38,6 +38,7 @@ const BasicQuestions = () => {
             <div>
                 <p>Completion: {completion}%</p>
                 <progress value={completion} max="100"></progress>
+                {completion === 100 && <p>Congratulations! You've completed all the questions.</p>}
             </div>
         </div>
     );
