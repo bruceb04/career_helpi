@@ -11,6 +11,7 @@ const BasicQuestions = () => {
         "Do you enjoy creative tasks?"
     ];
 
+    
     const [responses, setResponses] = useState(Array(questions.length).fill(null));
     const [completion, setCompletion] = useState(0);
 
