@@ -1,7 +1,10 @@
-import React from "react";
+import React from 'react';
+import { Button, Form } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
-export function Home() {
+//local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
+
+export function Home({ changeKey, handleSubmit }) {
     const quizzes = [
         {
             title: "Basic Quiz",
@@ -36,6 +39,14 @@ export function Home() {
                 <p>Date: {currentDate}</p>
             </header>
             {quizzes.map(renderQuiz)}
+            <div>
+                <Form>
+                    <Form.Label>API Key:</Form.Label>
+                    <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+                    <br></br>
+                    <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+                </Form>
+            </div>
         </>
     );
 }
