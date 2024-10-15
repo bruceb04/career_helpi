@@ -1,4 +1,3 @@
-
 const DetailedQuestions = () => {
     return (
         <div>
