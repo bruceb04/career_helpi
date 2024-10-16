@@ -4,7 +4,7 @@ import Home from './pages/homepage';
 import BasicQuestions from './pages/basicquestions';
 import DetailedQuestions from './pages/detailedquestions';
 import ApiTest from './pages/apitest';
-import { Layout } from "./Layout";
+import { Layout } from "./components/Layout";
 import OpenAI from 'openai';
 // import ApiTest from './pages/apitest';
 
