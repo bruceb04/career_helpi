@@ -11,7 +11,6 @@ const BasicQuestions = () => {
         "Do you enjoy creative tasks?"
     ];
 
-    
     const [responses, setResponses] = useState(Array(questions.length).fill(null));
     const [completion, setCompletion] = useState(0);
 
@@ -26,7 +25,7 @@ const BasicQuestions = () => {
 
     return (
         <div>
-            <h1 id="header">Career Quiz</h1>
+            <h1 id="header">Basic Questions</h1>
             <p>You can change your answers at any time.</p>
             {questions.map((question, index) => (
                 <div key={index}>
