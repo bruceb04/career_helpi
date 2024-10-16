@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/homepage';
 import BasicQuestions from './pages/basicquestions';
 import DetailedQuestions from './pages/detailedquestions';
@@ -54,7 +54,7 @@ const App = () => {
     <Router>
         <Routes>
             <Route element={<Layout />}>
-            <Route exact path="/" element={<Home changeKey={changeKey} handleSubmit={handleSubmit}/>} />
+            <Route path="/" element={<Home changeKey={changeKey} handleSubmit={handleSubmit}/>} />
             <Route path="/basicquestions" element={<BasicQuestions />} />
             <Route path="/detailedquestions" element={<DetailedQuestions />} />
             <Route path="/apitest" element={<ApiTest generateResponse={generateResponse}/>} />
