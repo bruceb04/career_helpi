@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/career_helpi/static/css/main.e6c13ad2.css",
-    "main.js": "/career_helpi/static/js/main.92e80f7c.js",
-    "static/js/453.bad6c33a.chunk.js": "/career_helpi/static/js/453.bad6c33a.chunk.js",
-    "index.html": "/career_helpi/index.html",
-    "main.e6c13ad2.css.map": "/career_helpi/static/css/main.e6c13ad2.css.map",
-    "main.92e80f7c.js.map": "/career_helpi/static/js/main.92e80f7c.js.map",
-    "453.bad6c33a.chunk.js.map": "/career_helpi/static/js/453.bad6c33a.chunk.js.map"
+    "main.css": "/bruceb04.github.io/career_helpi/static/css/main.e6c13ad2.css",
+    "main.js": "/bruceb04.github.io/career_helpi/static/js/main.12dc46d0.js",
+    "static/js/453.bad6c33a.chunk.js": "/bruceb04.github.io/career_helpi/static/js/453.bad6c33a.chunk.js",
+    "index.html": "/bruceb04.github.io/career_helpi/index.html",
+    "main.e6c13ad2.css.map": "/bruceb04.github.io/career_helpi/static/css/main.e6c13ad2.css.map",
+    "main.12dc46d0.js.map": "/bruceb04.github.io/career_helpi/static/js/main.12dc46d0.js.map",
+    "453.bad6c33a.chunk.js.map": "/bruceb04.github.io/career_helpi/static/js/453.bad6c33a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.92e80f7c.js"
+    "static/js/main.12dc46d0.js"
   ]
 }
