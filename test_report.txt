@@ -1,0 +1,12 @@
+
+> starter_helpi@0.1.0 test
+> react-scripts test --coverage
+
+No tests found, exiting with code 1
+Run with `--passWithNoTests` to exit with code 0
+In /home/runner/work/career_helpi/career_helpi
+  12 files checked.
+  testMatch: /home/runner/work/career_helpi/career_helpi/src/**/__tests__/**/*.{js,jsx,ts,tsx}, /home/runner/work/career_helpi/career_helpi/src/**/*.{spec,test}.{js,jsx,ts,tsx} - 0 matches
+  testPathIgnorePatterns: /node_modules/ - 12 matches
+  testRegex:  - 0 matches
+Pattern:  - 0 matches
