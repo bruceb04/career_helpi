@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/homepage";
-import BasicQuestions from "./pages/basicquestions";
-import DetailedQuestions from "./pages/detailedquestions";
-import ApiTest from "./pages/apitest";
+import React, {useState} from 'react';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/homepage';
+import BasicQuestions from './pages/basicquestions';
+import DetailedQuestions from './pages/detailedquestions';
+import ApiTest from './pages/apitest';
 import { Layout } from "./components/Layout";
-import OpenAI from "openai";
+import OpenAI from 'openai';
+// import ApiTest from './pages/apitest';
+
 
 /* NOTE: I have to write all API compatibility on the outermost level of the application so the key can be passed
 * to each component
@@ -18,7 +20,7 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
-const openai = new OpenAI({ apiKey: keyData, dangerouslyAllowBrowser: true }); // need second flag unfortunately
+const openai = new OpenAI({apiKey: keyData, dangerouslyAllowBrowser: true}); // need second flag unfortunately
 
 const generateResponse = async (input: string): Promise<{ content: string }> => {
     const completion = await openai.chat.completions.create({
@@ -32,30 +34,31 @@ const generateResponse = async (input: string): Promise<{ content: string }> => 
     return { content: completion.choices[0].message.content as string };
 };
 
-const App = (): JSX.Element => {
-  const [key, setKey] = useState<string>(keyData);
+const App = () => {
 
-  function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
-    setKey(event.target.value);
-  }
+    const [key, setKey] = useState(keyData);
 
-  function handleSubmit() {
-    localStorage.setItem(saveKeyData, JSON.stringify(key));
-    window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
-  }
+    function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
+        setKey(event.target.value);
+    }
 
-  return (
+    function handleSubmit() {
+        localStorage.setItem(saveKeyData, JSON.stringify(key));
+        window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
+    }
+
+    return (
     <Router>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home changeKey={changeKey} handleSubmit={handleSubmit} />} />
-          <Route path="/basicquestions" element={<BasicQuestions />} />
-          <Route path="/detailedquestions" element={<DetailedQuestions />} />
-          <Route path="/apitest" element={<ApiTest generateResponse={generateResponse} />} />
-        </Route>
-      </Routes>
+        <Routes>
+            <Route element={<Layout />}>
+            <Route path="/" element={<Home changeKey={changeKey} handleSubmit={handleSubmit}/>} />
+            <Route path="/basicquestions" element={<BasicQuestions />} />
+            <Route path="/detailedquestions" element={<DetailedQuestions />} />
+            <Route path="/apitest" element={<ApiTest generateResponse={generateResponse}/>} />
+            </Route>
+        </Routes>
     </Router>
-  );
+    )
 };
 
 export default App;
