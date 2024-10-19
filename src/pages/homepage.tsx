@@ -1,10 +1,7 @@
-import React from 'react';
-import { Button, Form } from 'react-bootstrap';
+import React from "react";
 import { Link } from "react-router-dom";
 
-//local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
-
-export function Home({ changeKey, handleSubmit }) {
+const Home = ({ changeKey, handleSubmit }: { changeKey: (event: React.ChangeEvent<HTMLInputElement>) => void; handleSubmit: () => void }) => {
     const quizzes = [
         {
             title: "Basic Quiz",
@@ -14,15 +11,15 @@ export function Home({ changeKey, handleSubmit }) {
         },
         {
             title: "Detailed Quiz",
-            desc: "A more detailed questionnaire to give a more in-depth career result and pinpoint your future careers more.",
+            desc: "A more detailed questionnaire to give a more in-depth career result and pinpoint your potential future careers.",
             button: "Detailed",
             route: "/detailedquestions"
         }
     ];
 
-    const currentDate = new Date().toLocaleDateString(); // Get current date
+    const currentDate = new Date().toLocaleDateString();
 
-    const renderQuiz = (quiz) => (
+    const renderQuiz = (quiz: { title: string; desc: string; button: string; route: string }) => (
         <div key={quiz.title}>
             <h2>{quiz.title}</h2>
             <p>{quiz.desc}</p>
@@ -38,17 +35,13 @@ export function Home({ changeKey, handleSubmit }) {
                 <h1>Career Quiz</h1>
                 <p>Date: {currentDate}</p>
             </header>
-            {quizzes.map(renderQuiz)}
             <div>
-                <Form>
-                    <Form.Label>API Key:</Form.Label>
-                    <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-                    <br></br>
-                    <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-                </Form>
+                <input type="text" onChange={changeKey} placeholder="Enter API Key" />
+                <button onClick={handleSubmit}>Save API Key</button>
             </div>
+            {quizzes.map(renderQuiz)}
         </>
     );
-}
+};
 
 export default Home;

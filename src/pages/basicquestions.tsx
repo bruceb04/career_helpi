@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-const BasicQuestions = () => {
-    const questions = [
+const BasicQuestions: React.FC = () => {
+    const questions: string[] = [
         "Do you enjoy working with numbers?",
         "Are you comfortable with public speaking?",
         "Do you like working in a team?",
@@ -11,10 +11,10 @@ const BasicQuestions = () => {
         "Do you enjoy creative tasks?"
     ];
 
-    const [responses, setResponses] = useState(Array(questions.length).fill(null));
-    const [completion, setCompletion] = useState(0);
+    const [responses, setResponses] = useState<(string | null)[]>(Array(questions.length).fill(null));
+    const [completion, setCompletion] = useState<number>(0);
 
-    const handleResponse = (index, response) => {
+    const handleResponse = (index: number, response: string): void => {
         const newResponses = [...responses];
         newResponses[index] = response;
         setResponses(newResponses);

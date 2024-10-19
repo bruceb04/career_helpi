@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-const DetailedQuestions = () => {
-    const questions = [
+const DetailedQuestions: React.FC = () => {
+    const questions: string[] = [
         "I enjoy learning new things and expanding my skills regularly.",
         "I am passionate about specific subjects or topics from my school days.",
         "I prefer working independently rather than collaborating with others.",
@@ -24,11 +24,11 @@ const DetailedQuestions = () => {
         "I want my work to positively impact society or the environment."
     ];
 
-    
-    const [responses, setResponses] = useState(Array(questions.length).fill(null));
-    const [completion, setCompletion] = useState(0);
+    // Type: responses is an array of strings or nulls
+    const [responses, setResponses] = useState<(string | null)[]>(Array(questions.length).fill(null));
+    const [completion, setCompletion] = useState<number>(0);
 
-    const handleResponse = (index, response) => {
+    const handleResponse = (index: number, response: string): void => {
         const newResponses = [...responses];
         newResponses[index] = response;
         setResponses(newResponses);
