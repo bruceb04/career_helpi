@@ -4,6 +4,7 @@ import Home from './pages/homepage';
 import BasicQuestions from './pages/basicquestions';
 import DetailedQuestions from './pages/detailedquestions';
 import ApiTest from './pages/apitest';
+import Result from './pages/resultpage'
 import { Layout } from "./components/Layout";
 import OpenAI from 'openai';
 // import ApiTest from './pages/apitest';
@@ -54,6 +55,7 @@ const App = () => {
             <Route path="/" element={<Home changeKey={changeKey} handleSubmit={handleSubmit}/>} />
             <Route path="/basicquestions" element={<BasicQuestions />} />
             <Route path="/detailedquestions" element={<DetailedQuestions />} />
+            <Route path="/resultpage" element={<Result />} />
             <Route path="/apitest" element={<ApiTest generateResponse={generateResponse}/>} />
             </Route>
         </Routes>
