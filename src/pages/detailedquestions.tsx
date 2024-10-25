@@ -1,28 +1,31 @@
 import React, { useState } from 'react';
 
+const questions: string[] = [
+    "I enjoy learning new things and expanding my skills regularly.",
+    "I am passionate about specific subjects or topics from my school days.",
+    "I prefer working independently rather than collaborating with others.",
+    "I find creative tasks (like writing or designing) enjoyable.",
+    "I believe I am well-organized and manage my tasks efficiently.",
+    "Achieving a good work-life balance is important to me.",
+    "I value job stability over the potential for high earnings.",
+    "A high salary is one of my top priorities in choosing a career.",
+    "I am comfortable speaking in front of large groups.",
+    "I would prefer a job that allows remote work options.",
+    "I am open to further education or training for my career.",
+    "I gain satisfaction from helping others and being in service roles.",
+    "I am more interested in analyzing data than interacting with people.",
+    "I handle stressful situations and pressure effectively.",
+    "I am curious about specific industries or fields.",
+    "I am willing to relocate or travel frequently for work.",
+    "Job title and status are important factors for me in a career.",
+    "I enjoy having a routine and structured tasks each day.",
+    "I value having opportunities for career advancement.",
+    "I want my work to positively impact society or the environment."
+];
+
+export var detailedQuestionsData = questions.map((q: string) => {return {question: q, answered: false, match: -1}});
+
 const DetailedQuestions: React.FC = () => {
-    const questions: string[] = [
-        "I enjoy learning new things and expanding my skills regularly.",
-        "I am passionate about specific subjects or topics from my school days.",
-        "I prefer working independently rather than collaborating with others.",
-        "I find creative tasks (like writing or designing) enjoyable.",
-        "I believe I am well-organized and manage my tasks efficiently.",
-        "Achieving a good work-life balance is important to me.",
-        "I value job stability over the potential for high earnings.",
-        "A high salary is one of my top priorities in choosing a career.",
-        "I am comfortable speaking in front of large groups.",
-        "I would prefer a job that allows remote work options.",
-        "I am open to further education or training for my career.",
-        "I gain satisfaction from helping others and being in service roles.",
-        "I am more interested in analyzing data than interacting with people.",
-        "I handle stressful situations and pressure effectively.",
-        "I am curious about specific industries or fields.",
-        "I am willing to relocate or travel frequently for work.",
-        "Job title and status are important factors for me in a career.",
-        "I enjoy having a routine and structured tasks each day.",
-        "I value having opportunities for career advancement.",
-        "I want my work to positively impact society or the environment."
-    ];
 
     // Type: responses is an array of strings or nulls
     const [responses, setResponses] = useState<(string | null)[]>(Array(questions.length).fill(null));
@@ -32,6 +35,9 @@ const DetailedQuestions: React.FC = () => {
         const newResponses = [...responses];
         newResponses[index] = response;
         setResponses(newResponses);
+
+        // update detailedQuestionData json
+        detailedQuestionsData[index] = {question: detailedQuestionsData[index].question, answered: true, match: Number(response)}
 
         const answeredCount = newResponses.filter(r => r !== null).length;
         setCompletion(Number(((answeredCount / questions.length) * 100).toFixed(2)));

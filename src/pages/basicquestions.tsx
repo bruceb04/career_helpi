@@ -1,25 +1,35 @@
 import React, { useState } from 'react';
 
+const questions: string[] = [
+    "Do you enjoy working with numbers?",
+    "Are you comfortable with public speaking?",
+    "Do you like working in a team?",
+    "Do you enjoy solving complex problems?",
+    "Are you interested in technology?",
+    "Do you prefer a structured work environment?",
+    "Do you enjoy creative tasks?"
+];
+
+// export json data for chatGPT integration
+export var basicQuestionsData = questions.map((q: string) => {return {question: q, answered: false, isMatch: false}})
+
 const BasicQuestions: React.FC = () => {
-    const questions: string[] = [
-        "Do you enjoy working with numbers?",
-        "Are you comfortable with public speaking?",
-        "Do you like working in a team?",
-        "Do you enjoy solving complex problems?",
-        "Are you interested in technology?",
-        "Do you prefer a structured work environment?",
-        "Do you enjoy creative tasks?"
-    ];
 
     const [responses, setResponses] = useState<(string | null)[]>(Array(questions.length).fill(null));
     const [completion, setCompletion] = useState<number>(0);
 
     const handleResponse = (index: number, response: string): void => {
+        // updata responses state
         const newResponses = [...responses];
         newResponses[index] = response;
         setResponses(newResponses);
 
-        const answeredCount = newResponses.filter(r => r !== null).length;
+        // update json data
+        basicQuestionsData[index] = {question: basicQuestionsData[index].question, answered: true, isMatch: (response == "Yes") ? true : false}
+
+        // update answered count state
+        const answeredCount = 
+        newResponses.filter(r => r !== null).length;
         setCompletion(Number(((answeredCount / questions.length) * 100).toFixed(2)));
     };
 
