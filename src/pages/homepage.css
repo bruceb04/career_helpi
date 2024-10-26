@@ -1,0 +1,134 @@
+/* Styles that apply to whole page */
+body {
+    font-family: Arial, sans-serif; /* for the font */
+    margin: 0; /* removes margins */
+    padding: 0; /* removes padding */
+    background-color: #f4f4f4; /* background color to light greyish */
+    color: #333; /* text color to dark greyish */
+}
+
+/* Styles for the header section */
+header {
+    background-color: #4CAF50; /* background color to green */
+    color: white; /* text color to white */
+    padding: 1rem; /* padding for the header */
+    text-align: center; /* centers the text inside of the header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* adds sexy shadows to around the header for effects */
+}
+
+header h1 {
+    margin: 0; /* removes margin */
+    font-size: 2rem; /* made font size to header file. */
+}
+
+/* Styles for the main content area */
+main {
+    padding: 2rem; /* padding for the main content area */
+    max-width: 1200px; /* max width for the main content area */
+    margin: 0 auto; /* centers the main content area */
+    background-color: white; /* background color to white */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* adds sexy shadows around the main content area */
+}
+
+main h2 {
+    font-size: 1.5rem; /* font size for subheadings */
+    margin-bottom: 1rem; /* space below the subheadings */
+}
+
+main p {
+    line-height: 1.6; /* line height for paragraphs */
+    margin-bottom: 1rem; /* space below paragraphs */
+}
+
+/* Styles for the quiz cards */
+.quiz-container {
+    display: flex; /* uses flexbox layout for the quiz container */
+    flex-wrap: wrap; /* allows the quiz cards to wrap to the next line */
+    gap: 1rem; /* space between quiz cards */
+}
+
+.quiz-card {
+    background-color: #fff; /* background color to white */
+    border: 1px solid #ddd; /* light gray border */
+    border-radius: 5px; /* rounds the corners of the quiz cards */
+    padding: 1rem; /* padding inside the quiz cards */
+    width: calc(50% - 1rem); /* width of the quiz cards */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* adds sexy shadows around the quiz cards */
+}
+
+.quiz-card h2 {
+    margin-top: 0; /* removes margin from the top */
+}
+
+.quiz-button {
+    display: inline-block; /* makes the button an inline-block element */
+    margin-top: 1rem; /* space above the button */
+    padding: 0.5rem 1rem; /* padding inside the button */
+    background-color: #4CAF50; /* background color to green */
+    color: white; /* text color to white */
+    text-decoration: none; /* removes underline from the link */
+    border-radius: 5px; /* rounds the corners of the button */
+}
+
+.quiz-button:hover {
+    background-color: #45a049; /* changes the background color on hover */
+}
+
+/* Styles for the form */
+form {
+    margin-top: 2rem; /* space above the form */
+}
+
+form input {
+    padding: 0.5rem; /* padding inside the input field */
+    margin-right: 0.5rem; /* space to the right of the input field */
+    border: 1px solid #ddd; /* light gray border */
+    border-radius: 5px; /* rounds the corners of the input field */
+}
+
+form button {
+    padding: 0.5rem 1rem; /* padding inside the button */
+    background-color: #4CAF50; /* background color to green */
+    color: white; /* text color to white */
+    border: none; /* removes the default border */
+    border-radius: 5px; /* rounds the corners of the button */
+    cursor: pointer; /* changes the cursor to a pointer on hover */
+}
+
+form button:hover {
+    background-color: #45a049; /* changes the background color on hover */
+}
+
+/* Styles for the footer */
+footer {
+    background-color: #333; /* background color to dark gray */
+    color: white; /* text color to white */
+    text-align: center; /* centers the text inside the footer */
+    padding: 1rem; /* padding inside the footer */
+    width: 80%; /* width of the footer */
+    margin: 0 auto; /* centers the footer */
+    position: fixed; /* fixes the footer at the bottom of the page */
+    left: 0; /* aligns the footer to the left */
+    right: 0; /* aligns the footer to the right */
+    bottom: 0; /* positions the footer at the bottom */
+}
+
+footer p {
+    margin: 0; /* removes margin */
+    font-size: 0.875rem; /* font size for the footer text */
+}
+
+/* Styles for smaller screens */
+@media (max-width: 768px) {
+    main {
+        padding: 1rem; /* reduces padding inside the main content area */
+    }
+
+    header, footer {
+        padding: 0.5rem; /* reduces padding inside the header and footer */
+    }
+
+    .quiz-card {
+        width: 100%; /* width of the quiz cards to 100% */
+    }
+}
