@@ -1,37 +1,38 @@
-import { Button } from "react-bootstrap";
-import { Form } from "react-bootstrap";
-import { useState } from "react";
-import React from "react";
+import React, { useState } from 'react';
+import './apitest.css';
 
-interface ApiResponse {
-    content: string;
-}
+const ApiTest = ({ generateResponse }: { generateResponse: (input: { basicData: any; detailedData: any; }) => Promise<{ content: string }> }) => {
+    const [input, setInput] = useState('');
+    const [response, setResponse] = useState('');
 
-interface ApiTestProps {
-    generateResponse: (prompt: string) => Promise<ApiResponse>;
-}
-
-const ApiTest: React.FC<ApiTestProps> = ({ generateResponse }) => {
-    const [prompt, setPrompt] = useState<string>("");
-    const [outputText, setOutputText] = useState<string>("");
-
-    const generateOutput = () => {
-        generateResponse(prompt).then((response) => setOutputText(response.content));
-    };
-
-    const updatePrompt = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setPrompt(event.target.value);
+    const handleSubmit = async (event: React.FormEvent) => {
+        event.preventDefault();
+        const result = await generateResponse({ basicData: input, detailedData: input });
+        setResponse(result.content);
     };
 
     return (
-        <>
-            <h1>Home Page</h1>
-            <div>
-                <Form.Control value={prompt} onChange={updatePrompt} />
-                <Button onClick={generateOutput}>Call API</Button>
-                <h2>{outputText}</h2>
-            </div>
-        </>
+        <div className="container">
+            <h1>API Test</h1>
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="input">Input:</label>
+                    <input
+                        type="text"
+                        id="input"
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                    />
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+            {response && (
+                <div className="form-group">
+                    <label>Response:</label>
+                    <textarea readOnly value={response} />
+                </div>
+            )}
+        </div>
     );
 };
 

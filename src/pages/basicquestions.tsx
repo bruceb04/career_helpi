@@ -1,28 +1,31 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './basicquestions.css';
 
-const questions: string[] = [
-    "Do you enjoy working with numbers?",
-    "Are you comfortable with public speaking?",
-    "Do you like working in a team?",
-    "Do you enjoy solving complex problems?",
-    "Are you interested in technology?",
-    "Do you prefer a structured work environment?",
-    "Do you enjoy creative tasks?"
+const questions = [
+"Do you enjoy working with numbers?",
+"Are you comfortable with public speaking?",
+"Do you like working in a team?",
+"Do you enjoy solving complex problems?",
+"Are you interested in technology?",
+"Do you prefer a structured work environment?",
+"Do you enjoy creative tasks?"
 ];
 
-const BasicQuestions: React.FC = () => {
-
+const BasicQuestions = ({ setBasicData }: { setBasicData: (data: any) => void }) => {
     const [responses, setResponses] = useState<(string | null)[]>(Array(questions.length).fill(null));
-    const [completion, setCompletion] = useState<number>(0);
+    const navigate = useNavigate();
 
     const handleResponse = (index: number, response: string): void => {
         const newResponses = [...responses];
         newResponses[index] = response;
         setResponses(newResponses);
+    };
 
-        const answeredCount = newResponses.filter(r => r !== null).length;
-        setCompletion(Number(((answeredCount / questions.length) * 100).toFixed(2)));
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setBasicData(responses);
+        navigate('/detailedquestions');
     };
 
     return (
@@ -38,11 +41,7 @@ const BasicQuestions: React.FC = () => {
                         {responses[index] && <p>Your answer: {responses[index]}</p>}
                     </div>
                 ))}
-                <div>
-                    <p>Completion: {completion}%</p>
-                    <progress value={completion} max="100"></progress>
-                    {completion === 100 && <p>Congratulations! You've completed all the questions.</p>}
-                </div>
+                <button onClick={handleSubmit}>Next</button>
             </div>
         </div>
     );
