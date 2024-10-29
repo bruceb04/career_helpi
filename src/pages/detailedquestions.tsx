@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
-type Props = {detailedQuestionsData: {question: string, answered: boolean, match: number}[], onSubmit: Function}
+type Props = {detailedQuestionsData: {question: string, answered: boolean, match: number}[], onSubmit: () => {}}
 
 export default function DetailedQuestions({detailedQuestionsData, onSubmit}: Props){
+
+    const navigate = useNavigate();
 
     // Type: responses is an array of strings or nulls
     const [completion, setCompletion] = useState<number>(0);
@@ -40,7 +43,7 @@ export default function DetailedQuestions({detailedQuestionsData, onSubmit}: Pro
                 <progress value={completion} max="100"></progress>
                 {completion === 100 && <p>Congratulations! You've completed all the questions.</p>}
             </div>
-            <Button onClick={() => {onSubmit /*TODO: navigate to results*/}} />
+            <Button disabled={completion !== 100.00} onClick={() => {onSubmit(); navigate("/results")}}>Submit</Button>
         </div>
     );
 };

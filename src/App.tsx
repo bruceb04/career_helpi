@@ -3,9 +3,9 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/homepage';
 import BasicQuestions from './pages/basicquestions';
 import DetailedQuestions from './pages/detailedquestions';
-import ApiTest from './pages/apitest';
 import { Layout } from "./components/Layout";
 import OpenAI from 'openai';
+import Results from './pages/Results';
 // import ApiTest from './pages/apitest';
 
 
@@ -19,6 +19,8 @@ const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: 
 if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
+
+const nullJob = {job_title: "", starting_salary: "", description: "", match_percentage: -1};
 
 const detailedQuestions: string[] = [
     "I enjoy learning new things and expanding my skills regularly.",
@@ -55,24 +57,74 @@ const basicQuestions: string[] = [
 
 const openai = new OpenAI({apiKey: keyData, dangerouslyAllowBrowser: true}); // need second flag unfortunately
 
-const generateResponse = async (input: string): Promise<{ content: string }> => {
-    const completion = await openai.chat.completions.create({
-        model: "gpt-4o-mini",
-        messages: [
-            { role: "system", content: "You are a helpful assistant." },
-            { role: "user", content: input},
-        ],
-    });
-
-    return { content: completion.choices[0].message.content as string };
-};
-
 var basicQuestionsData = basicQuestions.map((q: string) => {return {question: q, answered: false, isMatch: false}})
 var detailedQuestionsData = detailedQuestions.map((q: string) => {return {question: q, answered: false, match: -1}});
+
+type ResponseFormat = {job_title: string, starting_salary: string, description: string, match_percentage: number};
+
+const generateResponseBasic = async (): Promise<OpenAI.Chat.Completions.ChatCompletionMessage> => {
+
+    const completion = await openai.chat.completions.create({
+        model: "gpt-4o",
+        response_format: {type: "json_object"},
+        messages: [
+            { role: "system", content: "You are going to be given a list of Yes/No questions and their answers in stringified JSON format"},
+            { role: "system", content: "You are going to output a list of multiple employment opportunities that align with the given answers to their respective questions"},
+            { role: "system", content: "Respond in a JSON format that provides the job titles: \"job_title\", the starting yearly salaries in USD: \"starting_salary\", a brief description of the jobs: \"description\", and a percentage match that aligns with the given answers: \"match_percentage\""},
+            { role: "system", content: "Give results with a variety of match percentages and put the highest matches at the beginning of the results"},
+            { role: "system", content: "Show jobs from a variety of fields, but still align with the given answers"},
+            { role: "system", content: "Label the list as \"options\" in the json object"},
+            { role: "system", content: "All fields should be a string except the match percentage which should be a number from 1 to 100 rounded to the nearest whole number, the salary should start with a dollar sign"},
+            { role: "system", content: "Make sure almost all results are jobs with a 50% match or higher, and make sure all displayed jobs have a significant starting salary for a college graduate"},
+            { role: "user", content: JSON.stringify(basicQuestionsData)},
+        ],
+    });
+    return completion.choices[0].message
+};
+
+const generateResponseDetailed = async (): Promise<OpenAI.Chat.Completions.ChatCompletionMessage> => {
+
+    const completion = await openai.chat.completions.create({
+        model: "gpt-4o",
+        response_format: {type: "json_object"},
+        messages: [
+            { role: "system", content: "You are going to be given a list of questions and their answers on a scale of 1-5 in stringified JSON format"},
+            { role: "system", content: "You are going to output a list of multiple employment opportunities that align with the given answers to their respective questions"},
+            { role: "system", content: "Respond in a JSON format that provides the job titles: \"job_title\", the starting yearly salaries in USD: \"starting_salary\", a brief description of the jobs: \"description\", and a percentage match that aligns with the given answers: \"match_percentage\""},
+            { role: "system", content: "Give results with a variety of match percentages and put the highest matches at the beginning of the results"},
+            { role: "system", content: "Show jobs from a variety of fields, but still align with the given answers"},
+            { role: "system", content: "Label the list as \"options\" in the json object"},
+            { role: "system", content: "All fields should be a string except the match percentage which should be a number from 1 to 100 rounded to the nearest whole number, the salary should start with a dollar sign"},
+            { role: "system", content: "Make sure almost all results are jobs with a 50% match or higher, and make sure all displayed jobs have a significant starting salary for a college graduate"},
+            { role: "user", content: JSON.stringify(detailedQuestionsData)},
+        ],
+    });
+    console.log(completion.choices[0].message);
+    return completion.choices[0].message
+};
+
+
 
 const App = () => {
 
     const [key, setKey] = useState(keyData);
+    const [results, setResults] = useState<ResponseFormat[]>([nullJob]);
+
+    async function changeResultsBasic() {
+        await generateResponseBasic().then((message) => {
+            let options = message.content ? JSON.parse(message.content).options: nullJob
+            setResults(options);
+        })
+        
+    }
+
+    async function changeResultsDetailed() {
+        await generateResponseDetailed().then((message) => {
+            let options = message.content ? JSON.parse(message.content).options: nullJob
+            setResults(options);
+        })
+        
+    }
 
     function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
         setKey(event.target.value);
@@ -88,9 +140,9 @@ const App = () => {
         <Routes>
             <Route element={<Layout />}>
             <Route path="/" element={<Home changeKey={changeKey} handleSubmit={handleSubmit}/>} />
-            <Route path="/basicquestions" element={<BasicQuestions />} />
-            <Route path="/detailedquestions" element={<DetailedQuestions />} />
-            <Route path="/apitest" element={<ApiTest generateResponse={generateResponse}/>} />
+            <Route path="/basicquestions" element={<BasicQuestions basicQuestionsData={basicQuestionsData} onSubmit={changeResultsBasic}/>} />
+            <Route path="/detailedquestions" element={<DetailedQuestions detailedQuestionsData={detailedQuestionsData} onSubmit={changeResultsDetailed}/> } />
+            <Route path="/results" element={<Results results={results}/> } />
             </Route>
         </Routes>
     </Router>
