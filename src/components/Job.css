@@ -1,0 +1,51 @@
+/* for styling job item */
+
+.job-item {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #333;
+    background-color: #f0f0f0;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .job-item:hover {
+    background-color: #d9d9d9;
+    transform: scale(1.02);
+  }
+  
+  .job-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2b2b2b;
+    margin-bottom: 8px;
+  }
+  
+  .job-description {
+    font-size: 1rem;
+    color: #4f4f4f;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  
+  .job-salary {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 8px;
+  }
+  
+  .job-match {
+    font-size: 0.9rem;
+    color: #595959;
+    background-color: #e6e6e6;
+    padding: 4px 8px;
+    border-radius: 12px;
+    text-align: center;
+    width: fit-content;
+    align-self: flex-end;
+  }
+  
