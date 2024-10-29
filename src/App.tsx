@@ -20,6 +20,39 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
+const detailedQuestions: string[] = [
+    "I enjoy learning new things and expanding my skills regularly.",
+    "I am passionate about specific subjects or topics from my school days.",
+    "I prefer working independently rather than collaborating with others.",
+    "I find creative tasks (like writing or designing) enjoyable.",
+    "I believe I am well-organized and manage my tasks efficiently.",
+    "Achieving a good work-life balance is important to me.",
+    "I value job stability over the potential for high earnings.",
+    "A high salary is one of my top priorities in choosing a career.",
+    "I am comfortable speaking in front of large groups.",
+    "I would prefer a job that allows remote work options.",
+    "I am open to further education or training for my career.",
+    "I gain satisfaction from helping others and being in service roles.",
+    "I am more interested in analyzing data than interacting with people.",
+    "I handle stressful situations and pressure effectively.",
+    "I am curious about specific industries or fields.",
+    "I am willing to relocate or travel frequently for work.",
+    "Job title and status are important factors for me in a career.",
+    "I enjoy having a routine and structured tasks each day.",
+    "I value having opportunities for career advancement.",
+    "I want my work to positively impact society or the environment."
+];
+
+const basicQuestions: string[] = [
+    "Do you enjoy working with numbers?",
+    "Are you comfortable with public speaking?",
+    "Do you like working in a team?",
+    "Do you enjoy solving complex problems?",
+    "Are you interested in technology?",
+    "Do you prefer a structured work environment?",
+    "Do you enjoy creative tasks?"
+];
+
 const openai = new OpenAI({apiKey: keyData, dangerouslyAllowBrowser: true}); // need second flag unfortunately
 
 const generateResponse = async (input: string): Promise<{ content: string }> => {
@@ -33,6 +66,9 @@ const generateResponse = async (input: string): Promise<{ content: string }> => 
 
     return { content: completion.choices[0].message.content as string };
 };
+
+var basicQuestionsData = basicQuestions.map((q: string) => {return {question: q, answered: false, isMatch: false}})
+var detailedQuestionsData = detailedQuestions.map((q: string) => {return {question: q, answered: false, match: -1}});
 
 const App = () => {
 
