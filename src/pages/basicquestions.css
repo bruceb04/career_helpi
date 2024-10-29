@@ -1,0 +1,76 @@
+/* Container Styles */
+/* Styles for the main container */
+.container {
+    max-width: 800px; /* max width for the container */
+    margin: 0 auto; /* centers the container */
+    padding: 20px; /* padding inside the container */
+    background-color: #e0f7fa; /* background color to light blueish */
+    border-radius: 8px; /* rounds the corners of the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* adds sexy shadows around the container */
+}
+
+/* Header Styles */
+/* Styles for the header */
+h1 {
+    text-align: center; /* centers the header text */
+    color: #333; /* text color to dark greyish */
+    margin-bottom: 20px; /* space below the header */
+}
+
+/* Form Styles */
+/* Styles for the form */
+form {
+    display: flex; /* uses flexbox layout for the form */
+    flex-direction: column; /* arranges form elements in a column */
+    gap: 15px; /* space between form elements */
+}
+
+/* Label Styles */
+/* Styles for the labels */
+label {
+    font-weight: bold; /* makes the label text bold */
+    color: #555; /* text color to medium greyish */
+}
+
+/* Form Group Styles */
+/* Styles for the form groups */
+.form-group {
+    padding: 15px; /* padding inside the form group */
+    background-color: #fff; /* background color to white */
+    border: 1px solid #ddd; /* light gray border */
+    border-radius: 4px; /* rounds the corners of the form group */
+    margin-bottom: 15px; /* space below the form group */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* adds sexy shadows around the form group */
+}
+
+/* Input and Textarea Styles */
+/* Styles for text inputs and textareas */
+input[type="text"],
+input[type="email"],
+textarea {
+    padding: 10px; /* padding inside the input fields */
+    border: 1px solid #ccc; /* light gray border */
+    border-radius: 4px; /* rounds the corners of the input fields */
+    font-size: 16px; /* font size for the input text */
+    width: 100%; /* width of the input fields to 100% */
+    box-sizing: border-box; /* ensures padding and border are included in the element's total width and height */
+}
+
+/* Button Styles */
+/* Styles for the button */
+button {
+    padding: 10px 20px; /* padding inside the button */
+    background-color: #007bff; /* background color to blue */
+    color: white; /* text color to white */
+    border: none; /* removes the default border */
+    border-radius: 4px; /* rounds the corners of the button */
+    font-size: 16px; /* font size for the button text */
+    cursor: pointer; /* changes the cursor to a pointer on hover */
+    transition: background-color 0.3s ease; /* smooth transition for background color change */
+}
+
+/* Button Hover Styles */
+/* Styles for the button on hover */
+button:hover {
+    background-color: #0056b3; /* changes the background color on hover */
+}

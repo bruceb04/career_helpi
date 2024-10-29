@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Home = ({ changeKey, handleSubmit }: { changeKey: (event: React.ChangeEvent<HTMLInputElement>) => void; handleSubmit: () => void }) => {
+    const [userData, setUserData] = useState({ name: "", email: "" });
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target;
+        setUserData({ ...userData, [name]: value });
+    };
+
+    const handleFormSubmit = () => {
+        const jsonData = JSON.stringify(userData);
+        // Save jsonData to a file or send it to the API
+        console.log(jsonData);
+        handleSubmit();
+    };
+
     const quizzes = [
         {
             title: "Basic Quiz",
@@ -30,18 +44,45 @@ const Home = ({ changeKey, handleSubmit }: { changeKey: (event: React.ChangeEven
     );
 
     return (
-        <>
+        <div>
             <header>
-                <h1>Career Quiz</h1>
-                <p>Date: {currentDate}</p>
+                <h1>Career Helpi</h1>
             </header>
-            <div>
-                <input type="text" onChange={changeKey} placeholder="Enter API Key" />
-                <button onClick={handleSubmit}>Save API Key</button>
-            </div>
-            {quizzes.map(renderQuiz)}
-        </>
-    );
+            <main>
+                <h2>Welcome to Career Helpi</h2>
+                <p>Today's date: {currentDate}</p>
+<form onSubmit={handleFormSubmit} className="user-form">
+    <div className="form-group">
+        <label htmlFor="name">Name:</label>
+        <input
+            type="text"
+            id="name"
+            name="name"
+            value={userData.name}
+            onChange={handleInputChange}
+        />
+    </div>
+    <div className="form-group">
+        <label htmlFor="email">Email:</label>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            value={userData.email}
+            onChange={handleInputChange}
+        />
+    </div>
+    <button type="submit" className="submit-button">Submit</button>
+</form>
+<div className="quiz-container">
+    {quizzes.map(renderQuiz)}
+</div>
+</main>
+<footer>
+    <p>&copy; {new Date().getFullYear()} Career Helpi. All rights reserved.</p>
+</footer>
+</div>
+);
 };
 
 export default Home;

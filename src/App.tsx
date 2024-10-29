@@ -6,7 +6,6 @@ import DetailedQuestions from './pages/detailedquestions';
 import { Layout } from "./components/Layout";
 import OpenAI from 'openai';
 import Results from './pages/Results';
-// import ApiTest from './pages/apitest';
 
 
 /* NOTE: I have to write all API compatibility on the outermost level of the application so the key can be passed
