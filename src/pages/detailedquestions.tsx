@@ -10,16 +10,22 @@ export default function DetailedQuestions({detailedQuestionsData, onSubmit}: Pro
 
     // Type: responses is an array of strings or nulls
     const [completion, setCompletion] = useState<number>(0);
+    const [detailedQuestions, setDetailedQuestions] = useState(detailedQuestionsData);
 
     const handleResponse = (index: number, response: string): void => {
 
         // update detailedQuestionData json
-        detailedQuestionsData[index] = {question: detailedQuestionsData[index].question, answered: true, match: Number(response)}
+        const dqRef = [...detailedQuestions]
+        dqRef[index] = {question: detailedQuestionsData[index].question, answered: true, match: Number(response)}
+        setDetailedQuestions(dqRef);
 
-        const dqRef = detailedQuestionsData
-        let answeredQuestions = dqRef.filter((item) => item.answered).length
+        detailedQuestionsData = dqRef;
+        
+        const countRef = [...dqRef];
+        
+        let answeredQuestions = countRef.filter((item) => item.answered)
 
-        setCompletion(Number(((answeredQuestions / detailedQuestionsData.length) * 100).toFixed(2)));
+        setCompletion(Number(((answeredQuestions.length / dqRef.length) * 100).toFixed(2)));
     };
 
     return (
@@ -27,7 +33,7 @@ export default function DetailedQuestions({detailedQuestionsData, onSubmit}: Pro
             <h1 id="header">Detailed Career Quiz</h1>
             <p>You can change your answers at any time.</p>
             <p>Please answer on a scale of 1 to 5.</p>
-            {detailedQuestionsData.map((q, index) => (
+            {detailedQuestions.map((q, index) => (
                 <div key={index}>
                     <p>{q.question}</p>
                     <button onClick={() => handleResponse(index, "1")}>1</button>
@@ -35,7 +41,7 @@ export default function DetailedQuestions({detailedQuestionsData, onSubmit}: Pro
                     <button onClick={() => handleResponse(index, "3")}>3</button>
                     <button onClick={() => handleResponse(index, "4")}>4</button>
                     <button onClick={() => handleResponse(index, "5")}>5</button>
-                    {detailedQuestionsData[index].answered && <p>Your answer: {detailedQuestionsData[index].match}</p>}
+                    {detailedQuestions[index].answered && <p>Your answer: {detailedQuestions[index].match}</p>}
                 </div>
             ))}
             <div>
