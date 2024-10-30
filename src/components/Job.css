@@ -3,13 +3,12 @@
 .job-item {
     display: flex;
     flex-direction: column;
-    border: 2px solid #333;
-    background-color: #f0f0f0;
-    padding: 16px;
-    border-radius: 8px;
-    margin-bottom: 12px;
-    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, transform 0.3s;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   }
   
   .job-item:hover {
