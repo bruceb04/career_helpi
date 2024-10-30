@@ -31,6 +31,11 @@ export default function BasicQuestions({basicQuestionsData, onSubmit}: Props) {
         <div className='container'>
             <h1 id="header" className='h1'>Basic Questions</h1>
             <p>You can change your answers at any time.</p>
+            <div>
+                <p>Completion: {completion}%</p>
+                <progress value={completion} max="100"></progress>
+                {completion === 100 && <p>Congratulations! You've completed all the questions.</p>}
+            </div>
             {basicQuestions.map((q, index) => (
                 <div className='form-group' key={index}>
                     <p>{q.question}</p>
