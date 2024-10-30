@@ -5,6 +5,9 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Header Styles */
@@ -28,6 +31,7 @@ main {
     margin: 0 auto;
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
 }
 
 main h2 {
@@ -119,8 +123,8 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem;
-    position: fixed;
     width: 100%;
+    position: relative;
     bottom: 0;
 }
 
