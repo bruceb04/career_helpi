@@ -3,9 +3,9 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #e0f7fa;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* Changed to white for better contrast */
+    border-radius: 10px; /* Adjusted border radius for a more subtle effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced box-shadow for a more raised effect */
 }
 
 /* Header Styles */
@@ -13,6 +13,7 @@ h1 {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
+    font-weight: bold; /* Bold the header text */
 }
 
 /* Form Group Styles */
@@ -22,13 +23,13 @@ h1 {
     border: 1px solid #ddd;
     border-radius: 4px;
     margin-bottom: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced box-shadow for a more raised effect */
 }
 
 /* Button Styles */
 button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #3399ff; /* Light blue */
     color: white;
     border: none;
     border-radius: 4px;
@@ -38,5 +39,5 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #1a75ff; /* Slightly darker blue */
 }

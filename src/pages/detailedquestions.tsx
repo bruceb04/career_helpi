@@ -48,7 +48,7 @@ export default function DetailedQuestions({detailedQuestionsData, onSubmit}: Pro
                     {detailedQuestions[index].answered && <p>Your answer: {detailedQuestions[index].match}</p>}
                 </div>
             ))}
-            <div>
+            <div className="progress-container">
                 <p>Completion: {completion}%</p>
                 <progress value={completion} max="100"></progress>
                 {completion === 100 && <p>Congratulations! You've completed all the questions.</p>}
