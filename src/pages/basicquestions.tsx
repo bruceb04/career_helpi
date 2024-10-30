@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import './basicquestions.css';
 
 type Props = {basicQuestionsData: {question: string, answered: boolean, isMatch: boolean}[], onSubmit: () => {}}
 
@@ -27,14 +28,15 @@ export default function BasicQuestions({basicQuestionsData, onSubmit}: Props) {
     };
 
     return (
-        <div>
-            <h1 id="header">Basic Questions</h1>
+        <div className='container'>
+            <h1 id="header" className='h1'>Basic Questions</h1>
             <p>You can change your answers at any time.</p>
             {basicQuestions.map((q, index) => (
-                <div key={index}>
+                <div className='form-group' key={index}>
                     <p>{q.question}</p>
-                    <button onClick={() => handleResponse(index, "Yes")}>Yes</button>
-                    <button onClick={() => handleResponse(index, "No")}>No</button>
+                    {["Yes", "No"].map((response) => (
+                        <button className="button" onClick={() => handleResponse(index, response)}>{response}</button>
+                    ))}
                     {basicQuestions[index].answered && <p>Your answer: {basicQuestions[index].isMatch ? "Yes" : "No"}</p>}
                 </div>
             ))}

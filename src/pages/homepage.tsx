@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
+import './homepage.css';
 
 const Home = ({ changeKey, handleSubmit }: { changeKey: (event: React.ChangeEvent<HTMLInputElement>) => void; handleSubmit: () => void }) => {
     const [userData, setUserData] = useState({ name: "", email: "" });
@@ -47,9 +48,9 @@ const Home = ({ changeKey, handleSubmit }: { changeKey: (event: React.ChangeEven
     return (
         <div>
             <header>
-                <h1>Career Helpi</h1>
+                <h1 className="header">Career Helpi</h1>
             </header>
-            <main>
+            <main className="main">
                 <h2>Welcome to Career Helpi</h2>
                 <p>Today's date: {currentDate}</p>
 <form onSubmit={handleFormSubmit} className="user-form">
@@ -78,14 +79,14 @@ const Home = ({ changeKey, handleSubmit }: { changeKey: (event: React.ChangeEven
 <div className="quiz-container">
     {quizzes.map(renderQuiz)}
 </div>
-</main>
-<footer>
     <Form>
         <Form.Label>API Key:</Form.Label>
         <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
     </Form>
+</main>
+<footer>
     <p>&copy; {new Date().getFullYear()} Career Helpi. All rights reserved.</p>
 </footer>
 </div>

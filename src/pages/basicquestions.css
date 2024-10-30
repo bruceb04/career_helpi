@@ -19,7 +19,7 @@ h1 {
 
 /* Form Styles */
 /* Styles for the form */
-form {
+.form-group {
     display: flex; /* uses flexbox layout for the form */
     flex-direction: column; /* arranges form elements in a column */
     gap: 15px; /* space between form elements */
