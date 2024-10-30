@@ -89,7 +89,7 @@ const generateResponseDetailed = async (): Promise<OpenAI.Chat.Completions.ChatC
         messages: [
             { role: "system", content: "You are going to be given a list of questions and their answers on a scale of 1-5 in stringified JSON format"},
             { role: "system", content: "You are going to output a list of multiple employment opportunities that align with the given answers to their respective questions"},
-            { role: "system", content: "Respond in a JSON format that provides the job titles: \"job_title\", the starting yearly salaries in USD: \"starting_salary\", a brief description of the jobs: \"description\", and a percentage match that aligns with the given answers: \"match_percentage\""},
+            { role: "system", content: "Respond in a JSON format that provides the job titles: \"job_title\", the starting yearly salaries in USD: \"starting_salary\", a 2-3 sentence description of the jobs: \"description\", and a percentage match that aligns with the given answers: \"match_percentage\""},
             { role: "system", content: "Give results with a variety of match percentages and put the highest matches at the beginning of the results"},
             { role: "system", content: "Show jobs from a variety of fields, but still align with the given answers"},
             { role: "system", content: "Label the list as \"options\" in the json object"},
@@ -110,6 +110,7 @@ const App = () => {
     const [results, setResults] = useState<ResponseFormat[]>([nullJob]);
 
     async function changeResultsBasic() {
+        setResults([nullJob]);
         await generateResponseBasic().then((message) => {
             let options = message.content ? JSON.parse(message.content).options: nullJob
             setResults(options);
@@ -118,6 +119,7 @@ const App = () => {
     }
 
     async function changeResultsDetailed() {
+        setResults([nullJob]);
         await generateResponseDetailed().then((message) => {
             let options = message.content ? JSON.parse(message.content).options: nullJob
             setResults(options);
