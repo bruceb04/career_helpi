@@ -6,7 +6,7 @@
     padding: 20px; /* padding inside the container */
     background-color: #e0f7fa; /* background color to light blueish */
     border-radius: 8px; /* rounds the corners of the container */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* adds sexy shadows around the container */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* adds sexy shadows around the container */
 }
 
 /* Header Styles */
