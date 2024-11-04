@@ -51,7 +51,8 @@ const basicQuestions: string[] = [
     "Do you enjoy solving complex problems?",
     "Are you interested in technology?",
     "Do you prefer a structured work environment?",
-    "Do you enjoy creative tasks?"
+    "Do you enjoy creative tasks?",
+    "Do you enjoy phyical work?"
 ];
 
 const openai = new OpenAI({apiKey: keyData, dangerouslyAllowBrowser: true}); // need second flag unfortunately
