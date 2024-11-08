@@ -1,43 +1,52 @@
-/* Container Styles */
+/* Apply background color to the entire page */
+.detailed-questions-page {
+    background-color: #e0f7fa; /* Light pastel blue */
+    min-height: 100vh;
+    padding: 20px;
+}
+
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #ffffff; /* Changed to white for better contrast */
-    border-radius: 10px; /* Adjusted border radius for a more subtle effect */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced box-shadow for a more raised effect */
+    background-color: #ffffff; /* White background for the container */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Header Styles */
 h1 {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
-    font-weight: bold; /* Bold the header text */
 }
 
-/* Form Group Styles */
 .form-group {
     padding: 15px;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 4px;
     margin-bottom: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced box-shadow for a more raised effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Button Styles */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
 button {
     padding: 10px 20px;
-    background-color: #3399ff; /* Light blue */
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin: 0 5px;
 }
 
 button:hover {
-    background-color: #1a75ff; /* Slightly darker blue */
+    background-color: #0056b3;
 }

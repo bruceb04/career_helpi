@@ -75,6 +75,7 @@ const generateResponseBasic = async (): Promise<OpenAI.Chat.Completions.ChatComp
             { role: "system", content: "Label the list as \"options\" in the json object"},
             { role: "system", content: "All fields should be a string except the match percentage which should be a number from 1 to 100 rounded to the nearest whole number, the salary should start with a dollar sign"},
             { role: "system", content: "Make sure almost all results are jobs with a 50% match or higher, and make sure all displayed jobs have a significant starting salary for a college graduate"},
+            { role: "system", content: "\"description\": You also will provide wikepedia links that give information about the jobs "},
             { role: "user", content: JSON.stringify(basicQuestionsData)},
         ],
     });
@@ -95,6 +96,7 @@ const generateResponseDetailed = async (): Promise<OpenAI.Chat.Completions.ChatC
             { role: "system", content: "Label the list as \"options\" in the json object"},
             { role: "system", content: "All fields should be a string except the match percentage which should be a number from 1 to 100 rounded to the nearest whole number, the salary should start with a dollar sign"},
             { role: "system", content: "Make sure almost all results are jobs with a 50% match or higher, and make sure all displayed jobs have a significant starting salary for a college graduate"},
+            { role: "system", content: "\"description\": You also will provide website links that give information about the jobs "},
             { role: "user", content: JSON.stringify(detailedQuestionsData)},
         ],
     });
