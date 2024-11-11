@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/career_helpi/static/css/main.dc36a812.css",
-    "main.js": "/career_helpi/static/js/main.e9642e11.js",
+    "main.js": "/career_helpi/static/js/main.dc69aad1.js",
     "static/js/453.bad6c33a.chunk.js": "/career_helpi/static/js/453.bad6c33a.chunk.js",
     "index.html": "/career_helpi/index.html",
     "main.dc36a812.css.map": "/career_helpi/static/css/main.dc36a812.css.map",
-    "main.e9642e11.js.map": "/career_helpi/static/js/main.e9642e11.js.map",
+    "main.dc69aad1.js.map": "/career_helpi/static/js/main.dc69aad1.js.map",
     "453.bad6c33a.chunk.js.map": "/career_helpi/static/js/453.bad6c33a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dc36a812.css",
-    "static/js/main.e9642e11.js"
+    "static/js/main.dc69aad1.js"
   ]
 }
