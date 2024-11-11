@@ -42,9 +42,10 @@ export default function DetailedQuestions({detailedQuestionsData, onSubmit}: Pro
             {detailedQuestions.map((q, index) => (
                 <div className="form-group" key={index}>
                     <p>{q.question}</p>
+                    <div className="button-group">
                     {["1", "2", "3", "4", "5"].map((number) => (
                         <button className='button' onClick={() => handleResponse(index, number)}>{number}</button>
-                    ))}
+                    ))}</div>
                     {detailedQuestions[index].answered && <p>Your answer: {detailedQuestions[index].match}</p>}
                 </div>
             ))}
