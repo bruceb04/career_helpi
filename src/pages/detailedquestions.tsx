@@ -33,7 +33,7 @@ export default function DetailedQuestions({detailedQuestionsData, onSubmit}: Pro
         <div className='container'>
             <h1 id="header" className='h1'>Detailed Career Quiz</h1>
             <p>You can change your answers at any time.</p>
-            <p>Please answer on a scale of 1 to 5 (1 Being Worst, 5 Being Best).</p>
+            <p>Please answer on a scale of 1 to 5 (Worst to Best).</p>
             <div>
                 <p>Completion: {completion}%</p>
                 <progress value={completion} max="100"></progress>
