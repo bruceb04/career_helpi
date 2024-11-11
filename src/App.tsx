@@ -19,8 +19,8 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
-const nullJob = {job_title: "", starting_salary: "", description: "", match_percentage: -1}; // for incomplete loading times
-const errJob = {job_title: "We're having some trouble connecting right now", starting_salary: "", description: "Pleast try again later.", match_percentage: 0};
+const nullJob = {job_title: "", starting_salary: "", description: "", match_percentage: -1, wiki: ""}; // for incomplete loading times
+const errJob = {job_title: "We're having some trouble connecting right now", starting_salary: "", description: "Pleast try again later.", match_percentage: 0, wiki: ""};
 
 const detailedQuestions: string[] = [
     "I enjoy learning new things and expanding my skills regularly.",
@@ -61,7 +61,7 @@ const openai = new OpenAI({apiKey: keyData, dangerouslyAllowBrowser: true}); // 
 var basicQuestionsData = basicQuestions.map((q: string) => {return {question: q, answered: false, isMatch: false}})
 var detailedQuestionsData = detailedQuestions.map((q: string) => {return {question: q, answered: false, match: -1}});
 
-type ResponseFormat = {job_title: string, starting_salary: string, description: string, match_percentage: number};
+type ResponseFormat = {job_title: string, starting_salary: string, description: string, match_percentage: number, wiki: string};
 
 const generateResponseBasic = async (): Promise<OpenAI.Chat.Completions.ChatCompletionMessage> => {
 
@@ -71,11 +71,11 @@ const generateResponseBasic = async (): Promise<OpenAI.Chat.Completions.ChatComp
         messages: [
             { role: "system", content: "You are going to be given a list of Yes/No questions and their answers in stringified JSON format"},
             { role: "system", content: "You are going to output a list of multiple employment opportunities that align with the given answers to their respective questions"},
-            { role: "system", content: "Respond in a JSON format that provides the job titles: \"job_title\", the starting yearly salaries in USD: \"starting_salary\", a brief description of the jobs: \"description\", and a percentage match that aligns with the given answers: \"match_percentage\""},
+            { role: "system", content: "Respond in a JSON format that provides the job titles: \"job_title\", the starting yearly salaries in USD: \"starting_salary\", a brief description of the jobs: \"description\", a percentage match that aligns with the given answers: \"match_percentage\", and a link to the wikipedia article for this job: \"wiki\""},
             { role: "system", content: "Give results with a variety of match percentages and put the highest matches at the beginning of the results"},
             { role: "system", content: "Show jobs from a variety of fields, but still align with the given answers"},
             { role: "system", content: "Label the list as \"options\" in the json object"},
-            { role: "system", content: "All fields should be a string except the match percentage which should be a number from 1 to 100 rounded to the nearest whole number, the salary should start with a dollar sign"},
+            { role: "system", content: "All fields should be a string except the match percentage which should be a number from 1 to 100 rounded to the nearest whole number, the salary should start with a dollar sign, and make sure the link is from wikipedia.org"},
             { role: "system", content: "Make sure almost all results are jobs with a 50% match or higher, and make sure all displayed jobs have a significant starting salary for a college graduate"},
             { role: "system", content: "\"description\": You also will provide wikepedia links that give information about the jobs "},
             { role: "user", content: JSON.stringify(basicQuestionsData)},

@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import './Results.css';
 
-type ResponseFormat = {job_title: string, starting_salary: string, description: string, match_percentage: number};
+type ResponseFormat = {job_title: string, starting_salary: string, description: string, match_percentage: number, wiki: string};
 type Props = {results: ResponseFormat[]}
 
 export default function Results({results}: Props) {
@@ -13,7 +13,7 @@ export default function Results({results}: Props) {
 
   const listItems = results.map((result, index) => 
     <li key={index}>
-      <Job title={result.job_title} match={result.match_percentage} salary={result.starting_salary} desc={result.description}/>
+      <Job result={result}/>
     </li>
   );
 
