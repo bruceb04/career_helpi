@@ -19,7 +19,8 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
-const nullJob = {job_title: "", starting_salary: "", description: "", match_percentage: -1};
+const nullJob = {job_title: "", starting_salary: "", description: "", match_percentage: -1}; // for incomplete loading times
+const errJob = {job_title: "We're having some trouble connecting right now", starting_salary: "", description: "Pleast try again later.", match_percentage: 0};
 
 const detailedQuestions: string[] = [
     "I enjoy learning new things and expanding my skills regularly.",
@@ -113,19 +114,27 @@ const App = () => {
 
     async function changeResultsBasic() {
         setResults([nullJob]);
-        await generateResponseBasic().then((message) => {
-            let options = message.content ? JSON.parse(message.content).options: nullJob
-            setResults(options);
-        })
+        try {
+            await generateResponseBasic().then((message) => {
+                let options = message.content ? JSON.parse(message.content).options: nullJob
+                setResults(options);
+            })
+        } catch {
+            setResults([errJob]);
+        }        
         
     }
 
     async function changeResultsDetailed() {
         setResults([nullJob]);
-        await generateResponseDetailed().then((message) => {
-            let options = message.content ? JSON.parse(message.content).options: nullJob
-            setResults(options);
-        })
+        try {
+            await generateResponseDetailed().then((message) => {
+                let options = message.content ? JSON.parse(message.content).options: nullJob
+                setResults(options);
+            })
+        } catch {
+            setResults([errJob]);
+        }
         
     }
 
