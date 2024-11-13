@@ -1,9 +1,22 @@
 import React, { useState } from 'react';
 import './apitest.css';
 
-const ApiTest = ({ generateResponse }: { generateResponse: (input: { basicData: any; detailedData: any; }) => Promise<{ content: string }> }) => {
-    const [input, setInput] = useState('');
-    const [response, setResponse] = useState('');
+type GenerateResponseInput = {
+    basicData: string;
+    detailedData: string;
+};
+
+type GenerateResponseOutput = {
+    content: string;
+};
+
+type ApiTestProps = {
+    generateResponse: (input: GenerateResponseInput) => Promise<GenerateResponseOutput>;
+};
+
+const ApiTest = ({ generateResponse }: ApiTestProps) => {
+    const [input, setInput] = useState<string>('');
+    const [response, setResponse] = useState<string>('');
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();

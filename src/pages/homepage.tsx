@@ -6,13 +6,13 @@ const Home = ({ changeKey, handleSubmit }: { changeKey: (event: React.ChangeEven
     const quizzes = [
         {
             title: "Basic Quiz",
-            desc: "A very quick and easy quiz to find out your potential careers. These relatively simple questions will give a brief overview of the types of careers you might want to look further into.",
+            desc: "A very quick and easy quiz to find out your potential careers. These yes or no questions will give a brief overview of the types of careers you might want to look further into.",
             button: "Basic",
             route: "/basicquestions"
         },
         {
             title: "Detailed Quiz",
-            desc: "A more detailed questionnaire to give a more in-depth career result and pinpoint your potential future careers.",
+            desc: "A more detailed questionnaire in which the user will give answers ranging from 1 to 5 on agreeance to each statement. This quiz is designed to give a more in-depth career result and pinpoint your potential future careers.",
             button: "Detailed",
             route: "/detailedquestions"
         }
