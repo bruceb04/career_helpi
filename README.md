@@ -1,61 +1,63 @@
-# Getting Started with Helpi
+# Career Helpi
 
-Packages Included:
-* npm
-* bootstrap
-* react
-* openai
-* other configurations
+## Overview
 
-Career Helpi Goal:
-To showcase various job fields and advise someone on which field or job would best suit them based on their answers to questions.
-- the ultimate decision making algorithm should be done through openai (GPT). Not a long list of if-else statements.
+Career Helpi is a web application designed to assist users in identifying their career paths through a series of quizzes. The platform offers both basic and detailed quizzes, each tailored to provide insights into the user's strengths, preferences, and potential career matches. Upon completion of a quiz, users are presented with detailed results that include links to ChatGPT-generated insights, offering personalized advice and further information about their potential career choices.
 
+## Installation
 
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/career_helpi.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd career_helpi
+    ```
+3. Install the dependencies:
+    ```bash
+    npm install
+    ```
 
-## React Project Information:
+## Running the Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Start the development server:
+    ```bash
+    npm start
+    ```
+2. Open your browser and navigate to `http://localhost:3000`.
 
-## Available Scripts
+## Project Structure
 
-In the project directory, you can run:
+- `src/`: Contains the source code for the application.
+  - `components/`: Contains reusable React components.
+  - `pages/`: Contains the main pages of the application.
+  - `NavBar/`: Contains the navigation bar components.
+  - `CSSFolder/`: Contains the CSS files for styling the application.
+  - `index.js`: The entry point of the application.
+  - `App.js`: The main application component.
 
-### `npm start`
+## Key Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Basic and Detailed Quizzes**: Users can take either a basic or detailed quiz to get insights into their career preferences.
+- **ChatGPT Integration**: Upon completion of a quiz, users receive detailed results with links to ChatGPT-generated insights.
+- **Responsive Design**: The application is designed to be responsive and works well on both desktop and mobile devices.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## How It Works
 
-### `npm test`
+1. **Homepage**: Users can choose between the Basic Quiz and Detailed Quiz.
+2. **Quizzes**: Users answer a series of questions. The answers are processed to calculate a match percentage for various careers.
+3. **Results**: After completing a quiz, users are presented with their results, including career matches and links to ChatGPT-generated insights for more information.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Contributing
 
-### `npm run build`
+We welcome contributions! Please read our [Contributing Guidelines](CONTRIBUTING.md) for more information.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## License
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Description of Career Helpi
+Career Helpi is an innovative platform designed to assist users in identifying their career paths through a series of quizzes. The platform offers both basic and detailed quizzes, each tailored to provide insights into the user's strengths, preferences, and potential career matches. Upon completion of a quiz, users are presented with detailed results that include links to ChatGPT-generated insights, offering personalized advice and further information about their potential career choices.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Recently, we have made several updates to Career Helpi to improve both functionality and user experience. We have refined the descriptions throughout the platform to ensure they are more accurate and informative, providing users with clearer guidance and expectations. Additionally, we have made small but impactful styling changes to enhance the visual appeal and usability of the platform. For instance, we have ensured that buttons on the homepage are aligned and consistent in size, and we have centered important text elements to improve readability. These updates, along with the integration of ChatGPT results, make Career Helpi a more effective and user-friendly tool for career exploration.
