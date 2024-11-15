@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './apitest.css';
+import './CSSFolder/apitest.css';
 
 type GenerateResponseInput = {
     basicData: string;

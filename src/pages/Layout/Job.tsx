@@ -1,5 +1,6 @@
 import React from 'react'
-import "./Job.css"
+import './Job.css';
+
 
 type ResponseFormat = {job_title: string, starting_salary: string, description: string, match_percentage: number, wiki: string};
 type Props = {result: ResponseFormat}

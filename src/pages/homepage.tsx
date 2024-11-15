@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './homepage.css';
+import './CSSFolder/homepage.css';
 
 const Home = ({ changeKey, handleSubmit }: { changeKey: (event: React.ChangeEvent<HTMLInputElement>) => void; handleSubmit: () => void }) => {
     const quizzes = [

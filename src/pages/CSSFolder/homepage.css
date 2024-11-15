@@ -77,7 +77,8 @@ main p {
 }
 
 .quiz-button:hover {
-    background-color: #3399ff; /* Changed to darker blue */
+    background-color: #0073e6; /* Changed to darker blue */
+    color: white; /* Ensure text color remains white */
 }
 
 /* Form Styles */
@@ -90,9 +91,6 @@ form {
 
 form input {
     padding: 0.5rem;
-    margin-right: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
 }
 
 form button {

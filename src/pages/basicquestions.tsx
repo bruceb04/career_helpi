@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import './basicquestions.css';
+import './CSSFolder/basicquestions.css';
 
 type Props = {basicQuestionsData: {question: string, answered: boolean, isMatch: boolean}[], onSubmit: () => {}}
 

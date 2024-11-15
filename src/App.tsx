@@ -3,7 +3,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/homepage';
 import BasicQuestions from './pages/basicquestions';
 import DetailedQuestions from './pages/detailedquestions';
-import { Layout } from "./components/Layout";
+import { Layout } from "./pages/Layout/Layout";
 import OpenAI from 'openai';
 import Results from './pages/Results';
 
