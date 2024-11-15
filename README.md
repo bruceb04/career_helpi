@@ -55,7 +55,7 @@ We welcome contributions! Please read our [Contributing Guidelines](CONTRIBUTING
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
 
 ## Description of Career Helpi
 Career Helpi is an innovative platform designed to assist users in identifying their career paths through a series of quizzes. The platform offers both basic and detailed quizzes, each tailored to provide insights into the user's strengths, preferences, and potential career matches. Upon completion of a quiz, users are presented with detailed results that include links to ChatGPT-generated insights, offering personalized advice and further information about their potential career choices.
