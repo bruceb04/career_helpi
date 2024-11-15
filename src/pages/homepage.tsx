@@ -34,7 +34,6 @@ const Home = ({ changeKey, handleSubmit }: { changeKey: (event: React.ChangeEven
                 <h1>Career Helper</h1>
             </header>
             <main>
-                <h2>Welcome to Career Helper</h2>
                 <p>Today's date: {currentDate}</p>
                 <div className="quiz-container">
                     {quizzes.map(renderQuiz)}
