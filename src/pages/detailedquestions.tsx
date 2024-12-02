@@ -44,7 +44,7 @@ export default function DetailedQuestions({detailedQuestionsData, onSubmit}: Pro
                     <p>{q.question}</p>
                     <div className="button-group">
                     {[1, 2, 3, 4, 5].map((number) => (
-                        <button className={q.match == number && q.answered ? 'button-selected' : 'button'} onClick={() => handleResponse(index, number)}>{number}</button>
+                        <button className={q.match === number && q.answered ? 'button-selected' : 'button'} onClick={() => handleResponse(index, number)}>{number}</button>
                     ))}</div>
                     {detailedQuestions[index].answered && <p>Your answer: {detailedQuestions[index].match}</p>}
                 </div>

@@ -3,7 +3,7 @@ import './CSSFolder/AboutUs.css';
 
 const AboutUs = () => {
     return (
-        <div className="about-us-container">
+        <div>
             <h1>About Us</h1>
             <p>Welcome to Career Helpi! We are dedicated to helping you find your ideal career path through personalized quizzes and insights.</p>
             <p>Our team:</p>
