@@ -40,7 +40,7 @@ export default function BasicQuestions({basicQuestionsData, onSubmit}: Props) {
                 <div className='form-group' key={index}>
                     <p>{q.question}</p>
                     {[true, false].map((response) => ( // handle button highlighting based on response
-                        <button className={basicQuestions[index].isMatch == response && basicQuestions[index].answered ? "button-selected" : "button"} onClick={() => handleResponse(index, response)}>{response ? "Yes" : "No"}</button>
+                        <button className={basicQuestions[index].isMatch === response && basicQuestions[index].answered ? "button-selected" : "button"} onClick={() => handleResponse(index, response)}>{response ? "Yes" : "No"}</button>
                     ))}
                     {basicQuestions[index].answered && <p>Your answer: {basicQuestions[index].isMatch ? "Yes" : "No"}</p>}
                 </div>
