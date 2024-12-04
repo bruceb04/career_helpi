@@ -13,11 +13,11 @@ export default function DetailedQuestions({detailedQuestionsData, onSubmit}: Pro
     const [completion, setCompletion] = useState<number>(0);
     const [detailedQuestions, setDetailedQuestions] = useState(detailedQuestionsData);
 
-    const handleResponse = (index: number, response: string): void => {
+    const handleResponse = (index: number, response: number): void => {
 
         // update detailedQuestionData json
         const dqRef = [...detailedQuestions]
-        dqRef[index] = {question: detailedQuestionsData[index].question, answered: true, match: Number(response)}
+        dqRef[index] = {question: detailedQuestionsData[index].question, answered: true, match: response}
         setDetailedQuestions(dqRef);
 
         detailedQuestionsData = dqRef;
@@ -43,8 +43,8 @@ export default function DetailedQuestions({detailedQuestionsData, onSubmit}: Pro
                 <div className="form-group" key={index}>
                     <p>{q.question}</p>
                     <div className="button-group">
-                    {["1", "2", "3", "4", "5"].map((number) => (
-                        <button className='button' onClick={() => handleResponse(index, number)}>{number}</button>
+                    {[1, 2, 3, 4, 5].map((number) => (
+                        <button className={q.match === number && q.answered ? 'button-selected' : 'button'} onClick={() => handleResponse(index, number)}>{number}</button>
                     ))}</div>
                     {detailedQuestions[index].answered && <p>Your answer: {detailedQuestions[index].match}</p>}
                 </div>

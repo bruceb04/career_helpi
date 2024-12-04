@@ -1,0 +1,28 @@
+.about-us-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e0f7fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-us-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.about-us-container p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.about-us-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.about-us-container li {
+    margin-bottom: 0.5rem;
+}

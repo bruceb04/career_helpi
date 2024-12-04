@@ -12,10 +12,10 @@ export default function BasicQuestions({basicQuestionsData, onSubmit}: Props) {
     const [completion, setCompletion] = useState<number>(0);
     const [basicQuestions, setBasicQuestions] = useState(basicQuestionsData)
 
-    const handleResponse = (index: number, response: string): void => {
+    const handleResponse = (index: number, response: boolean): void => {
         // update json data
         const bqRef = [...basicQuestions];
-        bqRef[index] = {question: basicQuestionsData[index].question, answered: true, isMatch: (response === "Yes") ? true : false};
+        bqRef[index] = {question: basicQuestionsData[index].question, answered: true, isMatch: response};
         setBasicQuestions(bqRef);
 
         basicQuestionsData = bqRef
@@ -39,8 +39,8 @@ export default function BasicQuestions({basicQuestionsData, onSubmit}: Props) {
             {basicQuestions.map((q, index) => (
                 <div className='form-group' key={index}>
                     <p>{q.question}</p>
-                    {["Yes", "No"].map((response) => (
-                        <button className="button" onClick={() => handleResponse(index, response)}>{response}</button>
+                    {[true, false].map((response) => ( // handle button highlighting based on response
+                        <button className={basicQuestions[index].isMatch === response && basicQuestions[index].answered ? "button-selected" : "button"} onClick={() => handleResponse(index, response)}>{response ? "Yes" : "No"}</button>
                     ))}
                     {basicQuestions[index].answered && <p>Your answer: {basicQuestions[index].isMatch ? "Yes" : "No"}</p>}
                 </div>

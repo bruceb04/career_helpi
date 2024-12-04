@@ -70,6 +70,19 @@ button {
 
 }
 
+/* Styles for the slected button */
+.button-selected {
+    padding: 10px 20px; /* padding inside the button */
+    background-color: #0056b3; /* background color to blue */
+    color: white; /* text color to white */
+    border: none; /* removes the default border */
+    border-radius: 4px; /* rounds the corners of the button */
+    font-size: 16px; /* font size for the button text */
+    cursor: pointer; /* changes the cursor to a pointer on hover */
+    transition: background-color 0.3s ease; /* smooth transition for background color change */
+
+}
+
 /* Button Hover Styles */
 /* Styles for the button on hover */
 button:hover {

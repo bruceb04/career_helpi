@@ -6,6 +6,7 @@ import DetailedQuestions from './pages/detailedquestions';
 import { Layout } from "./pages/Layout/Layout";
 import OpenAI from 'openai';
 import Results from './pages/Results';
+import AboutUs from './pages/AboutUs';
 
 
 /* NOTE: I have to write all API compatibility on the outermost level of the application so the key can be passed
@@ -156,6 +157,7 @@ const App = () => {
             <Route path="/basicquestions" element={<BasicQuestions basicQuestionsData={basicQuestionsData} onSubmit={changeResultsBasic}/>} />
             <Route path="/detailedquestions" element={<DetailedQuestions detailedQuestionsData={detailedQuestionsData} onSubmit={changeResultsDetailed}/> } />
             <Route path="/results" element={<Results results={results}/> } />
+            <Route path="/about-us" element={<AboutUs />} />
             </Route>
         </Routes>
     </Router>
