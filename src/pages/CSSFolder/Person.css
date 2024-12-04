@@ -1,0 +1,24 @@
+.button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #007bff; /* Changed to blue */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+h2 {
+    text-align: center; /* centers the header text */
+    color: #333; /* text color to dark greyish */
+    margin-bottom: 20px; /* space below the header */
+}
+
+
+.image-with-border {
+    border: 5px solid lightaqua; /* Set the border width and color */
+    border-radius: 10px; /* Optional: add rounded corners */
+    padding: 5px; /* Optional: add spacing between border and image */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
+  }
+  
