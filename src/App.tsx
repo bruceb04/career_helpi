@@ -20,6 +20,7 @@ if (prevKey !== null) {
 }
 
 const nullJob = {job_title: "", starting_salary: "", description: "", match_percentage: -1, wiki: ""}; // for incomplete loading times
+// "error job" to be displayed if there is an issue with the openai API
 const errJob = {job_title: "We're having some trouble connecting right now", starting_salary: "", description: "Pleast try again later.", match_percentage: 0, wiki: ""};
 
 const detailedQuestions: string[] = [

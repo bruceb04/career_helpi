@@ -12,7 +12,7 @@ body {
 
 /* Header Styles */
 header {
-    background-color: #3399ff; /* Changed to blue */
+    background-color: #007bff; /* Changed to blue */
     color: white;
     padding: 1rem;
     text-align: center;
@@ -74,7 +74,7 @@ main p {
     display: inline-block;
     margin-top: 1rem;
     padding: 0.5rem 1rem;
-    background-color: #3399ff; /* Changed to blue */
+    background-color: #007bff; /* Changed to blue */
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -99,7 +99,7 @@ form input {
 
 form button {
     padding: 0.5rem 1rem;
-    background-color: #3399ff; /* Changed to blue */
+    background-color: #007bff; /* Changed to blue */
     color: white;
     border: none;
     border-radius: 5px;
