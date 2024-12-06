@@ -7,16 +7,18 @@ type Props = {person: PersonJ};
 
 export default function Person({person}: Props) {
   return (
-    <div>
+    <div className='about-div'>
         <h2 className='h2'>{person.name}</h2>
+        <h4>Graduating {person.gradSem}</h4>
         <img className="image-with-border" src={person.image} alt={`${person.name}`}/>
-        <p>Graduating {person.gradSem}</p>
+        <div className='links-container'>
         {person.links.map((link) => (
             <p>
                 <a href={link.url}>{link.site}</a>
             </p>
             
         ))}
+        </div>
         <Button className="button" onClick={(e) => {
             e.preventDefault();
             window.location.href=`mailto:${person.schoolEmail}`;

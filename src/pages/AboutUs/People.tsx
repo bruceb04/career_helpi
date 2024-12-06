@@ -1,3 +1,8 @@
+const bruce = require("./photos/bruce.JPEG");
+const ryan = require("./photos/ryan.png");
+const matt = require("./photos/matt.png");
+const dev = require("./photos/dev.png");
+
 export const PEOPLE = 
 [
     {
@@ -5,7 +10,7 @@ export const PEOPLE =
         "pronouns": ["he", "him"],
         "gradSem": "Spring 2026",
         "schoolEmail": "brbe@udel.edu",
-        "image": "./photos/bruce.JPEG",
+        "image": bruce,
         "links": [
             {"site": "LinkedIn", "url": "https://www.linkedin.com/in/bruce-bermel-25197a25b/"},
             {"site": "GitHub", "url": "https://github.com/bruceb04"}
@@ -16,7 +21,16 @@ export const PEOPLE =
         "pronouns": ["he", "him"],
         "gradSem": "Spring 2027",
         "schoolEmail": "ryancort@udel.edu",
-        "image": "./photos/ryan.png",
+        "image": ryan,
+        "links": []
+
+    },
+    {
+        "name": "Devashish Kaluvakolanu",
+        "pronouns": ["he", "him"],
+        "gradSem": "Spring 2026",
+        "schoolEmail": "kaldevas@udel.edu",
+        "image": dev,
         "links": []
 
     },
@@ -25,7 +39,7 @@ export const PEOPLE =
         "pronouns": ["he", "him"],
         "gradSem": "Spring 2026",
         "schoolEmail": "mkudler@udel.edu",
-        "image": "./photos/matt.png",
+        "image": matt,
         "links": []
 
     }
