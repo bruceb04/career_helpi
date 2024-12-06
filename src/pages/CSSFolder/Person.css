@@ -1,0 +1,106 @@
+  /* General container styling */
+.about-div {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #f9f9f9; /* Soft background */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Header styling */
+  h2 {
+    color: #333; /* Dark grey text color */
+    margin-bottom: 20px; /* Space below the header */
+    font-size: 1.8rem;
+  }
+
+  h4 {
+    color: #333; /* Dark grey text color */
+    margin-bottom: 20px; /* Space below the header */
+    font-size: 1.1rem;
+  }
+  
+  /* Image styling */
+  .image-with-border {
+    border: 5px solid #e0f7fa; /* Border width and color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 5px; /* Spacing between border and image */
+    max-width: 25%; /* Ensure the image doesn't exceed the container width */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 10px auto; /* Center image */
+  }
+  
+  /* Paragraph styling */
+  p {
+    font-size: 1rem;
+    color: #555; /* Soft grey text */
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  /* Link styling */
+  a {
+    text-decoration: none;
+    color: #007bff; /* Blue text for links */
+    font-weight: bold;
+    transition: color 0.3s ease;
+    text-align: center;
+  }
+  
+  a:hover {
+    color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Button styling */
+  .button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #007bff; /* Blue button background */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  
+  .button:active {
+    background-color: #003d7a; /* Even darker blue on click */
+    transform: scale(0.98); /* Slightly shrink on click */
+  }
+
+  .links-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 600px) {
+    div {
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    .image-with-border {
+      max-width: 50%; /* Larger image for small screens */
+    }
+  
+    .button {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+  
